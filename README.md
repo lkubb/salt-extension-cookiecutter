@@ -1,11 +1,11 @@
-# salt-extension-cookiecutter
+# Create Salt Extensions
 
 A [Cookiecutter](https://github.com/cookiecutter/cookiecutter) template that initializes a project structure for developing [Salt](https://github.com/saltstack/salt) extension modules.
 
 The template files themselves are currently sourced almost verbatim from the official [create-salt-extension](https://github.com/saltstack/salt-extension) tool. This template provides the necessary scaffolding to render them via Cookiecutter (using some ugly hacks).
 
 ## Why
-I like to manage the lifecycle of my projects via [cruft](https://cruft.github.io/cruft/), which wraps Cookiecutter to additionally provide (1) boilerplate updates after the initial project generation and (2) diffs of what you changed versus the generated data.
+I like to manage the lifecycle of my projects via [cruft](https://cruft.github.io/cruft/), which wraps Cookiecutter to additionally provide (**1**) boilerplate updates after the initial project generation and (**2**) diffs of what you changed versus the generated data.
 
 ## How
 ### General remarks
@@ -69,7 +69,7 @@ And you can show a diff of the current state of the code versus the boilerplate 
 This also allows you to modify the inputs in `.cruft.json` and apply them (to existing files). But: The following command will reset your changes to all known files! So better filter the output manually if you already started your work.
 
 ```console
-    $ cruft diff | git apply
+    $ cruft diff | git apply  # resets all changes on existing files!
 ```
 
 ### Cookiecutter
