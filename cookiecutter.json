@@ -1,0 +1,25 @@
+{
+    "project_name": "example",
+    "author": "",
+    "author_email": "",
+    "summary": "Salt Extension for interacting with {{ cookiecutter.project_name | capitalize }}",
+    "url": "https://github.com/salt-extensions/saltext-{{ cookiecutter.project_name }}",
+    "source_url": "{% if 'github.com' in cookiecutter.url %}{{ cookiecutter.url }}{% else %}https://github.com/salt-extensions/saltext-{{ cookiecutter.project_name }}{% endif %}",
+    "tracker_url": "{% if 'github.com' in cookiecutter.source_url %}{{ cookiecutter.source_url }}/issues{% endif %}",
+    "docs_url": "",
+    "package_name": "{{ cookiecutter.project_name | slugify(separator='_') }}",
+    "license":
+    [
+        "apache",
+        "other"
+    ],
+    "loaders": "modules,states",
+    "salt_version": "3003",
+    "no_saltext_namespace": false,
+    "_extensions": [
+        "jinja2.ext.do",
+        "jinja2.ext.loopcontrols",
+        "local_extensions.SaltExt",
+        "local_extensions.Year"
+    ]
+}
