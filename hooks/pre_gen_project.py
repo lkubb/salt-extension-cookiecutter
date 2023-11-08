@@ -10,6 +10,8 @@ Jinja extensions module. Meh. Caveman go boom:
 {%- do sledgehammer(cookiecutter) %}
 """
 
+import sys
+
 SALT_LOADERS = (
     "auth",
     "beacons",
@@ -44,6 +46,13 @@ SALT_LOADERS = (
     "wrapper",
 )
 
+
+class C:
+    BOLD = "\033[1m"
+    ERR = "\033[91m"
+    END = "\033[0m"
+
+
 selected_mods = {{ cookiecutter.loaders | jsonify }}
 if not isinstance(selected_mods, list):
     selected_mods = [x.strip() for x in selected_mods.split(",")]
@@ -56,6 +65,11 @@ unknown_filtered = {
     if x.rstrip("s") not in SALT_LOADERS and x + "s" not in SALT_LOADERS
 }
 if unknown_filtered:
-    raise ValueError(
-        f"The following loaders are unknown: {', '.join(unknown_filtered)}"
+    print(
+        f"\n{C.ERR}The following loaders are unknown:{C.END} "
+        f"{C.BOLD}{f'{C.END}, {C.BOLD}'.join(unknown_filtered)}{C.END}"
     )
+    print(
+        f"\n{C.BOLD}Available:{C.END} {', '.join(x.rstrip('s') for x in SALT_LOADERS)}\n"
+    )
+    sys.exit(1)
